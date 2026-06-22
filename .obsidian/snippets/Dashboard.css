@@ -1,0 +1,911 @@
+/* ============================================================
+   Dashboard / Home 工作台样式
+   配合 Home.md 使用
+   ============================================================ */
+
+/* ---------- 隐藏笔记属性面板 ---------- */
+.hide-properties .metadata-container {
+  display: none !important;
+}
+
+/* ---------- 区块标题 ---------- */
+.dash-section-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 22px 0 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-normal);
+  border-left: 4px solid var(--color-accent);
+  padding-left: 10px;
+}
+
+/* ---------- 全局搜索框（顶部大尺寸） ---------- */
+.dash-search-wrap-top {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 20px 0;
+}
+
+.dash-search-input-lg {
+  width: 100%;
+  padding: 22px 30px;
+  font-size: 1.2rem;
+  border-radius: 18px;
+  border: 1.5px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dash-search-input-lg::placeholder {
+  color: var(--text-faint);
+}
+
+.dash-search-input-lg:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.15);
+}
+
+/* ---------- 日历快捷按钮 ---------- */
+.cal-quick-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 18px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 10px;
+  background: var(--background-secondary);
+  border: 1.5px solid var(--background-modifier-border);
+  color: var(--text-normal) !important;
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.cal-quick-btn:hover {
+  border-color: var(--color-accent);
+  background: var(--background-modifier-hover);
+}
+
+/* ---------- 领域导航卡片网格 ---------- */
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 8px 0 10px 0;
+}
+
+.dash-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 16px 16px 14px 16px;
+  border-radius: 14px;
+  text-decoration: none !important;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.dash-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-accent);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.dash-icon {
+  font-size: 1.7rem;
+  line-height: 1.1;
+}
+
+.dash-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+.dash-meta {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ---------- 最近笔记列表 ---------- */
+.dash-recent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 6px 0;
+  max-height: 600px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+
+.recent-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.recent-row:hover {
+  background: var(--background-modifier-hover);
+}
+
+.recent-link {
+  text-decoration: none !important;
+  font-size: 0.92rem;
+  color: var(--text-normal);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 78%;
+}
+
+.recent-link:hover {
+  color: var(--color-accent);
+}
+
+.recent-folder {
+  font-size: 0.72rem;
+  color: var(--text-faint);
+  margin-left: 8px;
+}
+
+.recent-date {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- 领域卡片激活态 ---------- */
+.dash-card-active {
+  border-color: var(--color-accent) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ---------- 二级目录面板 ---------- */
+.dash-sub-panel {
+  margin: 14px 0 6px 0;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+}
+
+.sub-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+.sub-panel-search-all {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.sub-panel-search-all:hover {
+  text-decoration: underline;
+}
+
+.sub-panel-empty {
+  font-size: 0.84rem;
+  color: var(--text-faint);
+  padding: 8px 0;
+}
+
+.dash-sub-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dash-sub-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dash-sub-chip:hover {
+  border-color: var(--color-accent);
+  background: var(--background-modifier-hover);
+}
+
+.sub-chip-name {
+  font-size: 0.84rem;
+  color: var(--text-normal);
+}
+
+.sub-chip-count {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* ---------- 待办区块 ---------- */
+.todo-btn-wrap {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.todo-action-btn {
+  padding: 5px 14px;
+  font-size: 0.82rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.todo-action-btn:hover {
+  border-color: var(--color-accent);
+  background: var(--background-modifier-hover);
+}
+
+.todo-add-btn {
+  font-weight: 600;
+}
+
+.todo-del-btn {
+  padding: 3px 8px;
+  font-size: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  border: none;
+  background: transparent;
+}
+
+.todo-row:hover .todo-del-btn {
+  opacity: 1;
+}
+
+.todo-del-btn:hover {
+  background: rgba(255, 80, 80, 0.12);
+  border-radius: 6px;
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.todo-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: background 0.15s ease;
+}
+
+.todo-row:hover {
+  background: var(--background-modifier-hover);
+}
+
+.todo-checkbox {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  cursor: pointer;
+  accent-color: var(--color-accent);
+}
+
+.todo-text {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--text-normal);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.todo-source {
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  flex-shrink: 0;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.todo-empty {
+  font-size: 0.88rem;
+  color: var(--text-faint);
+  padding: 16px 0;
+}
+
+/* ---------- 三栏面板（日历+待办+速记） ---------- */
+.dash-panel {
+  display: grid;
+  grid-template-columns: 260px 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+  margin: 8px 0 4px 0;
+}
+
+@media (max-width: 900px) {
+  .dash-panel {
+    grid-template-columns: 260px 1fr;
+  }
+  .dash-panel-right {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .dash-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+.dash-panel-left,
+.dash-panel-mid,
+.dash-panel-right {
+  min-width: 0;
+}
+
+/* ---------- 速记白板 ---------- */
+.scratch-textarea {
+  width: 100%;
+  min-height: 300px;
+  max-height: 500px;
+  margin: 6px 0;
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  font-family: inherit;
+  border-radius: 10px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.2s ease;
+}
+
+.scratch-textarea::placeholder {
+  color: var(--text-faint);
+}
+
+.scratch-textarea:focus {
+  border-color: var(--color-accent);
+}
+
+.scratch-open {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.76rem;
+  color: var(--color-accent) !important;
+  text-decoration: none !important;
+}
+
+.scratch-open:hover {
+  text-decoration: underline !important;
+}
+
+/* ---------- 日历区块 ---------- */
+.cal-main {
+  min-width: 0;
+}
+
+/* ---------- 日历导航栏 ---------- */
+.cal-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.cal-nav-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-normal);
+  text-align: center;
+}
+
+.cal-nav-btn {
+  padding: 3px 8px;
+  font-size: 0.78rem;
+  border-radius: 5px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cal-nav-btn:hover {
+  border-color: var(--color-accent);
+  background: var(--background-modifier-hover);
+}
+
+.cal-nav-today {
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  text-align: center;
+}
+
+.cal-weekday {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 2px 0;
+}
+
+.cal-empty {
+  /* placeholder */
+}
+
+.cal-day {
+  font-size: 0.78rem;
+  padding: 5px 0;
+  border-radius: 6px;
+  color: var(--text-muted);
+  transition: background 0.15s ease;
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cal-day.cal-clickable {
+  cursor: pointer;
+}
+
+.cal-day.cal-clickable:not(.cal-has-note):not(.cal-today):hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+.cal-day.cal-today {
+  background: var(--color-accent);
+  color: var(--text-on-accent, #fff) !important;
+  font-weight: 700;
+}
+
+.cal-day.cal-has-note {
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  font-weight: 600;
+  border: 1.5px solid var(--color-accent);
+  cursor: pointer;
+}
+
+.cal-day.cal-has-note:hover {
+  background: var(--color-accent);
+  color: var(--text-on-accent, #fff) !important;
+}
+
+.cal-day.cal-today.cal-has-note {
+  background: var(--color-accent);
+  color: var(--text-on-accent, #fff) !important;
+  border-color: var(--color-accent);
+}
+
+/* ---------- 未来事件清单 ---------- */
+.upcoming-title {
+  margin-top: 16px;
+}
+
+.upcoming-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 4px 0;
+}
+
+.upcoming-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  transition: background 0.15s ease;
+}
+
+.upcoming-row:hover {
+  background: var(--background-modifier-hover);
+}
+
+.upcoming-date {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 42px;
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+}
+
+.upcoming-icon {
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  flex-shrink: 0;
+}
+
+.upcoming-text {
+  font-size: 0.8rem;
+  color: var(--text-normal) !important;
+  text-decoration: none !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.upcoming-text:hover {
+  color: var(--color-accent) !important;
+}
+
+/* ---------- 已完成待办（滚动列表） ---------- */
+.done-list {
+  max-height: 600px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.done-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.done-list::-webkit-scrollbar-thumb {
+  background: var(--background-modifier-border);
+  border-radius: 4px;
+}
+
+.done-check {
+  color: var(--color-accent);
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-right: 6px;
+}
+
+.done-text {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- 近期事件列表 ---------- */
+.dash-events {
+  min-width: 0;
+}
+
+.events-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--text-normal);
+}
+
+.events-empty {
+  font-size: 0.85rem;
+  color: var(--text-faint);
+  padding: 12px 0;
+}
+
+.event-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background 0.15s ease;
+}
+
+.event-row:hover {
+  background: var(--background-modifier-hover);
+}
+
+.event-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  min-width: 42px;
+}
+
+.event-text {
+  font-size: 0.88rem;
+  color: var(--text-normal) !important;
+  text-decoration: none !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.event-text:hover {
+  color: var(--color-accent) !important;
+}
+
+/* ---------- 项目进度及跟进 ---------- */
+.proj-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 6px 0;
+}
+
+.proj-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  transition: all 0.15s ease;
+}
+
+.proj-row-clickable {
+  cursor: pointer;
+}
+
+.proj-row-clickable:hover {
+  border-color: var(--color-accent);
+  background: var(--background-modifier-hover);
+  transform: translateX(2px);
+}
+
+.proj-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-normal);
+  flex-shrink: 0;
+  min-width: 120px;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.proj-status {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 20px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.proj-status-active {
+  background: rgba(var(--color-blue-rgb, 59, 130, 246), 0.15);
+  color: rgb(59, 130, 246);
+}
+
+.proj-status-done {
+  background: rgba(39, 174, 96, 0.15);
+  color: #27ae60;
+}
+
+.proj-status-blocked {
+  background: rgba(231, 76, 60, 0.15);
+  color: #e74c3c;
+}
+
+.proj-status-pending {
+  background: rgba(149, 165, 166, 0.15);
+  color: #95a5a6;
+}
+
+.proj-progress-wrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.proj-progress-track {
+  flex: 1;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--background-modifier-border);
+  overflow: hidden;
+  min-width: 60px;
+}
+
+.proj-progress-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.proj-progress-bar-low {
+  background: #e74c3c;
+}
+
+.proj-progress-bar-mid {
+  background: #f39c12;
+}
+
+.proj-progress-bar-high {
+  background: #27ae60;
+}
+
+.proj-progress-bar-done {
+  background: #1a7a3f;
+}
+
+.proj-progress-text {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  min-width: 36px;
+  text-align: right;
+}
+
+.proj-owner {
+  font-size: 0.76rem;
+  color: var(--text-faint);
+  flex-shrink: 0;
+  min-width: 50px;
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.proj-open-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.76rem;
+  color: var(--color-accent) !important;
+  text-decoration: none !important;
+}
+
+.proj-open-link:hover {
+  text-decoration: underline !important;
+}
+
+/* ---------- 收藏三栏（视频 + 博客 + GitHub） ---------- */
+.fav-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin: 6px 0;
+}
+
+@media (max-width: 900px) {
+  .fav-two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .fav-two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+.fav-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 12px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  overflow: hidden;
+}
+
+.fav-col-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--background-modifier-hover);
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.fav-col-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+.fav-col-edit {
+  font-size: 0.72rem;
+  color: var(--color-accent) !important;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+.fav-col-edit:hover {
+  text-decoration: underline !important;
+}
+
+.fav-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.fav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  transition: background 0.12s ease;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+
+.fav-item:last-child {
+  border-bottom: none;
+}
+
+.fav-item:hover {
+  background: var(--background-modifier-hover);
+}
+
+.fav-item-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.fav-item-title {
+  font-size: 0.84rem;
+  color: var(--text-normal);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fav-item-tag {
+  font-size: 0.68rem;
+  padding: 1px 8px;
+  border-radius: 12px;
+  background: rgba(var(--color-accent-rgb, 59, 130, 246), 0.12);
+  color: var(--color-accent);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.fav-empty {
+  padding: 16px 14px;
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  text-align: center;
+}
