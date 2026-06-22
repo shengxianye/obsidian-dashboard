@@ -68,9 +68,9 @@
 
 ```javascript
 const domains = [
-  { name: "技术学习", icon: "📚", folder: "技术学习" },
-  { name: "工作相关", icon: "💼", folder: "工作相关" },
-  { name: "生活记录", icon: "🌟", folder: "生活记录" },
+  { name: "Tech Learning", icon: "📚", folder: "Tech Learning" },
+  { name: "Work", icon: "💼", folder: "Work" },
+  { name: "Life", icon: "🌟", folder: "Life" },
   // 添加更多...
 ];
 ```
@@ -178,12 +178,12 @@ dv.table(
 默认数据文件位置可在 `Home.md` 中修改：
 
 ```javascript
-const TODO_FILE = "★★待办.md";
-const PROGRESS_FILE = "★★项目进度.md";
+const TODO_FILE = "★★Todo.md";
+const PROGRESS_FILE = "★★Project Progress.md";
 const COLLECTION_FILES = {
-  videos: "★★收藏视频.md",
-  blogs: "★★收藏博客.md",
-  github: "★★收藏GitHub.md"
+  videos: "★★Video Bookmarks.md",
+  blogs: "★★Blog Bookmarks.md",
+  github: "★★GitHub Bookmarks.md"
 };
 ```
 

@@ -10,7 +10,7 @@ cssclasses:
 ```dataviewjs
 // === 动态扫描领域导航卡片（含二级目录展开）===
 // 自动获取 Vault 根目录下的文件夹作为领域，排除特殊目录
-const excludeFolders = new Set(["00 - Daily", "模板", "templates", "附件", "assets"]);
+const excludeFolders = new Set(["00 - Daily", "Templates", "Attachments", "templates", "assets", "模板", "附件"]);
 
 const allFoldersRaw = app.vault.getAllLoadedFiles().filter(f => f.children);
 const rootFolders = allFoldersRaw
@@ -19,9 +19,18 @@ const rootFolders = allFoldersRaw
 
 // 为每个文件夹自动分配图标（可通过文件夹名首字匹配或使用默认）
 const iconMap = {
-  "工作": "💼", "学习": "📚", "项目": "🚀", "技术": "💻",
-  "生活": "🌱", "读书": "📖", "笔记": "📝", "设计": "🎨",
-  "研究": "🔬", "运维": "🔧", "开发": "⚡", "产品": "📦",
+  "Work": "💼", "工作": "💼",
+  "Tech": "💻", "技术": "💻",
+  "Learning": "📚", "学习": "📚",
+  "Life": "🌱", "生活": "🌱",
+  "Reading": "📖", "读书": "📖",
+  "Project": "🚀", "项目": "🚀",
+  "Notes": "📝", "笔记": "📝",
+  "Design": "🎨", "设计": "🎨",
+  "Research": "🔬", "研究": "🔬",
+  "DevOps": "🔧", "运维": "🔧",
+  "Product": "📦", "产品": "📦",
+  "Example": "📂",
 };
 function getIcon(name) {
   for (const [key, icon] of Object.entries(iconMap)) {
@@ -127,7 +136,7 @@ const noteCol = wrapper.createEl("div", { cls: "dash-panel-right" });  // 速记
 // ===== 中栏：待办聚合 =====
 rightCol.createEl("div", { text: "✅ 待办聚合", cls: "dash-section-title" });
 
-const todoFile = "★★待办.md";
+const todoFile = "★★Todo.md";
 
 // 解析待办文件
 async function loadTodos() {
@@ -341,12 +350,12 @@ if (upcomingItems.length === 0) {
 }
 
 // ===== 右栏：速记白板 =====
-const scratchFile = "★★速记.md";
+const scratchFile = "★★Quick Notes.md";
 noteCol.createEl("div", { text: "📝 速记", cls: "dash-section-title" });
 
 const textarea = noteCol.createEl("textarea", {
   cls: "scratch-textarea",
-  attr: { placeholder: "随手记录任何想法…\n内容自动保存到「★★速记.md」" }
+  attr: { placeholder: "随手记录任何想法…\n内容自动保存到「★★Quick Notes.md」" }
 });
 
 try {
@@ -379,9 +388,9 @@ noteCol.createEl("a", { text: "在编辑器中打开 →", cls: "internal-link s
 
 ```dataviewjs
 // === 收藏三栏：视频 + 博客 + GitHub ===
-const videoFile = "★★收藏视频.md";
-const blogFile = "★★收藏博客.md";
-const githubFile = "★★收藏GitHub.md";
+const videoFile = "★★Video Bookmarks.md";
+const blogFile = "★★Blog Bookmarks.md";
+const githubFile = "★★GitHub Bookmarks.md";
 
 // 解析 Markdown 表格
 async function parseTable(filePath) {
@@ -465,11 +474,11 @@ if (githubs.length === 0) {
 
 ```dataviewjs
 // === 项目进度及跟进 ===
-const projFile = "★★项目进度.md";
+const projFile = "★★Project Progress.md";
 const file = app.vault.getAbstractFileByPath(projFile);
 
 if (!file) {
-  dv.container.createEl("div", { text: "未找到项目进度文件「★★项目进度.md」，请先创建。", cls: "todo-empty" });
+  dv.container.createEl("div", { text: "未找到项目进度文件「★★Project Progress.md」，请先创建。", cls: "todo-empty" });
 } else {
   try {
     const content = await app.vault.read(file);
@@ -485,7 +494,7 @@ if (!file) {
     );
 
     if (dataRows.length === 0) {
-      dv.container.createEl("div", { text: "暂无项目记录，请在「★★项目进度.md」中添加。", cls: "todo-empty" });
+      dv.container.createEl("div", { text: "暂无项目记录，请在「★★Project Progress.md」中添加。", cls: "todo-empty" });
     } else {
       const list = dv.container.createEl("div", { cls: "proj-list" });
 
@@ -556,7 +565,7 @@ if (!file) {
 
       // 底部打开项目进度文件
       const openLink = dv.container.createEl("a", {
-        text: "在编辑器中打开「★★项目进度.md」维护 →",
+        text: "在编辑器中打开「★★Project Progress.md」维护 →",
         cls: "proj-open-link internal-link",
         href: projFile
       });
@@ -571,7 +580,7 @@ if (!file) {
 
 ```dataviewjs
 // === 最近完成的待办 ===
-const todoFile = "★★待办.md";
+const todoFile = "★★Todo.md";
 const file = app.vault.getAbstractFileByPath(todoFile);
 
 let doneTasks = [];
@@ -611,7 +620,7 @@ if (doneTasks.length === 0) {
 // === 最近修改的笔记 ===
 const exclude = ["Home.md"];
 const files = app.vault.getMarkdownFiles()
-  .filter(f => !exclude.includes(f.path) && !f.path.startsWith("模板"))
+  .filter(f => !exclude.includes(f.path) && !f.path.startsWith("模板") && !f.path.startsWith("Templates"))
   .sort((a, b) => b.stat.mtime - a.stat.mtime)
   .slice(0, 100);
 

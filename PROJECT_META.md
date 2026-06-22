@@ -55,11 +55,11 @@ homepage = "https://github.com/your-username/obsidian-dashboard"
 - `.obsidian/snippets/Dashboard.css` - 样式文件
 
 ### 数据文件
-- `★★待办.md` - 待办事项数据
-- `★★项目进度.md` - 项目进度数据
-- `★★收藏视频.md` - 视频收藏
-- `★★收藏博客.md` - 博客收藏
-- `★★收藏GitHub.md` - GitHub 收藏
+- `★★Todo.md` - 待办事项数据
+- `★★Project Progress.md` - 项目进度数据
+- `★★Video Bookmarks.md` - 视频收藏
+- `★★Blog Bookmarks.md` - 博客收藏
+- `★★GitHub Bookmarks.md` - GitHub 收藏
 
 ### 文档文件
 - `README.md` - 项目说明

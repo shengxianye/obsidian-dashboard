@@ -40,7 +40,7 @@
 - `.obsidian/snippets/Dashboard.css` - 样式文件
 - `Home.md` - Dashboard 主文件
 - `★★*.md` - 数据文件
-- `示例领域*/` - 参考示例
+- `Example Domain*/` - 参考示例
 
 ---
 

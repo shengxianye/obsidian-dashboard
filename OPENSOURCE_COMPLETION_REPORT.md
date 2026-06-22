@@ -38,11 +38,11 @@ obsidian-dashboard/
 │   └── ✅ .obsidian/snippets/Dashboard.css
 │
 └── 📊 数据文件（已清理）
-    ├── ✅ ★★项目进度.md           - 示例项目数据
-    ├── ✅ ★★待办.md              - 示例待办数据
-    ├── ✅ ★★收藏视频.md
-    ├── ✅ ★★收藏博客.md
-    └── ✅ ★★收藏GitHub.md
+    ├── ✅ ★★Project Progress.md   - 示例项目数据
+    ├── ✅ ★★Todo.md              - 示例待办数据
+    ├── ✅ ★★Video Bookmarks.md
+    ├── ✅ ★★Blog Bookmarks.md
+    └── ✅ ★★GitHub Bookmarks.md
 ```
 
 ## 📝 内容检查清单
