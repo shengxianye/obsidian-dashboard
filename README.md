@@ -6,7 +6,7 @@
 
 ## 预览效果
 
-![Dataview Dashboard 预览](dataview.png)
+![Dataview Dashboard 预览](dashboard.png)
 
 Dashboard 包含以下模块：
 
@@ -121,7 +121,7 @@ Dashboard 依赖阅读模式渲染 DataviewJS，否则打开时会显示代码�
 
 ## � 预览效果
 
-![Obsidian Dashboard 预览](docs/dashboard-preview.png)
+![Obsidian Dashboard 预览](dashboard.png)
 
 ## ✨ 功能特性
 
